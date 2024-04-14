@@ -1,0 +1,133 @@
+.sidebar {
+  position: fixed;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 250px;
+  background-color: #262730; /* Sidebar background color */
+  padding-top: 60px; /* Space for the logo */
+  overflow-y: auto; /* Enable vertical scrolling if needed */
+  z-index: 1000; /* Ensure the sidebar stays above other content */
+}
+
+/* Logo styles */
+.logo {
+  padding: 10px;
+  text-align: center;
+}
+
+.logo a {
+  color: #fff;
+  text-decoration: none;
+}
+
+/* Menu elements styles */
+.menu-elements {
+  padding-left: 0;
+}
+
+.menu-elements li {
+  list-style-type: none;
+  margin-bottom: 10px;
+}
+
+.menu-elements a {
+  display: block;
+  padding: 10px 20px;
+  color: #fff;
+  text-decoration: none;
+}
+
+.menu-elements a:hover {
+  background-color: #555; /* Hover background color */
+}
+
+/* Submenu styles */
+.menu-elements ul {
+  margin-left: 20px;
+}
+
+/* To top button styles */
+.to-top {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+/* Dark/light mode buttons styles */
+.dark-light-buttons {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+}
+
+/* Close sidebar button styles */
+.dismiss {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  cursor: pointer;
+  color: #fff;
+}
+
+/* Content container styles */
+.content {
+  padding: 20px;
+  color: #fff;
+}
+
+/* Ensure the dropdown arrow is white */
+
+
+.active{
+  font-size: 16px;
+}
+
+.active1{
+  font-size: 16px;
+  text-align :initial;
+}
+
+
+.fixed-text {
+  position: fixed;
+  /* Add additional styles as needed */
+}
+
+.switch-container{
+ padding:6px;
+ 
+}
+
+/* Styles the main container */
+.basic-multi-select {
+  width: 200px; 
+  margin-left: 10px;
+  background-color: black;/* Change the width as per your requirement */
+}
+
+.compare-now-btn {
+  padding: 10px 20px;
+  border: 2px solid transparent; /* Adjust as needed */
+  background-color: #282c34; /* Your initial background color */
+  color: white; /* Initial text color */
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-left: 13px;
+  margin-top: 10px;
+  border-radius: 10px; /* Smooth transition for color change */
+}
+
+.compare-now-btn.clicked {
+  border-color: red; /* Red border when clicked */
+  color: red; /* Red text when clicked */
+}
+
+
+
+
+
+
+
+

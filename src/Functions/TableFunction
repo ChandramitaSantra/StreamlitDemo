@@ -1,0 +1,78 @@
+import React, { useEffect, useState } from 'react';
+
+// Mockup of the get_percentage function you provided
+const getPercentage = (data, key) => {
+  let vals = [];
+  let totals = [];
+  let info = `../public/${data}/${key}.json`
+  if (key === "jailbreak") {
+    const val = (info.summary.jailbreak / info.summary.total) * 100;
+    return parseFloat(val.toFixed(2));
+  }
+  if (key === "bias") {
+    info = info.summary[key][0]; // Adjust based on your data structure
+  } else {
+    info = info.summary[key]; // Adjust based on your info structure
+  }
+  for (let val of info) {
+    vals.push(val.failed);
+    totals.push(val.total);
+  }
+  const percentage = (sum(vals) / sum(totals)) * 100;
+  return parseFloat(percentage.toFixed(2));
+};
+
+// Helper function to calculate sum
+const sum = (arr) => arr.reduce((a, b) => a + b, 0);
+
+const ModelDataComponent = () => {
+  const [scores, setScores] = useState({
+    bias: 0,
+    jailbreak: 0,
+    malware: 0,
+    deepinception: 0,
+    toxicity: 0,
+    averageRiskScore: 0,
+  });
+
+//   useEffect(() => {
+//     // Assuming you have a function to fetch all your model data
+//     const fetchData = async () => {
+//       const modelFiles = ['bias.json', 'jailbreak.json', 'malware.json', 'deepinception.json', 'toxicity.json'];
+//       const data = await Promise.all(
+//         modelFiles.map(file =>
+//           fetch().then(response => response.json())
+//         )
+//       );
+
+      // Assuming the structure is similar for all model data for simplification
+      // Calculate each score and average risk score
+//       const newScores = {
+//         bias: getPercentage(data[0], 'bias'),
+//         jailbreak: getPercentage(data[1], 'jailbreak'),
+//         malware: getPercentage(data[2], 'malware'),
+//         deepinception: getPercentage(data[3], 'deepinception'),
+//         toxicity: getPercentage(data[4], 'toxicity'),
+//       };
+
+//       const averageRiskScore = Object.values(newScores).reduce((acc, curr) => acc + curr, 0) / Object.keys(newScores).length;
+//       setScores({ ...newScores, averageRiskScore });
+//     };
+
+//     fetchData();
+//   }, []);
+
+  return (
+    <div>
+      <h2>Model Analysis Scores</h2>
+      <p>Bias: {scores.bias}%</p>
+      <p>Jailbreak: {scores.jailbreak}%</p>
+      <p>Malware: {scores.malware}%</p>
+      <p>DeepInception: {scores.deepinception}%</p>
+      <p>Toxicity: {scores.toxicity}%</p>
+      <p>Average Risk Score: {scores.averageRiskScore}%</p>
+    </div>
+  );
+};
+
+export default ModelDataComponent;
